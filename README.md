@@ -1,1 +1,16 @@
 # Capstone-Three
+
+Pennsylvania’s public school system is home to a wide range of schools in terms of performance, demographics, and funding. It’s no question that there exist sharp race/ethnic differences in student achievement. There are significant achievement gaps based on family economic status as well. Given this background information, the goals of this project are:
+1. To investigate the magnitude of gaps in school performance across multiple demographic groups.
+2. To understand what other factors are associated with school performance (including funding and expenditures per student).
+3. To create a model that will establish specific connections between the independent variables and the dependent variable, which is the percentage of students that pass (proficient or above) in each school. Two models will be created, one for Mathematics assessment and the other for English Language Arts (now referred to as ELA) assessment.
+
+To measure school performance, we’ll rely on data from the Pennsylvania Department of Education on the percent proficient or above in Math and ELA for each school in Pennsylvania. The Pennsylvania System of School Assessment (PSSA) is a standards-based, criterion-referenced assessment which provides students, parents, educators, and citizens with an understanding of student and school performance related to the attainment of proficiency of academic standards. Every Pennsylvania student in grades 3 through 8 attending district schools, charters, and cyber charters is assessed in English Language Arts and Math.
+
+By using data from the 2018-2019 school year on school information, demographics, and expenditures, we trained two models, one to predict the percent proficient or above in ELA and the other to predict the percent proficient or above in Math. Our best model for ELA was XGBoost, with an r2 score of 0.81, a mean absolute error of 6.41, and a 95% worst case interval for residuals from −16.45 to 15.87. Our best model for Math was also XGBoost, with an r2 score of 0.72, a mean absolute error of 8.91, and a 95% worst case interval for residuals from −22.09 to 23.24.
+
+After analyzing the impact of features on our models using the SHAP library, we discovered that the most important features were the percentage of economically disadvantaged students in a school, the percentage of black students, the percentage of special education students, and the percentage of students that had regular attendance records. We will discuss the significance of these results and our subsequent recommendations later in this report based on SHAP values and counterfactual explanations combined with the Bayesian Optimization package.2
+
+The intended stakeholders of this project are school administrators and policy makers in the Pennsylvania Department of Education who are interested in improving the performance of underperforming schools. This problem is relevant to them because PSSA results factor heavily into the School Performance Profile, which is the state’s school rating system. Furthermore, school scores are used by districts in decisions about school turnaround interventions and school closings, as well as in the charter school renewal process.
+
+The implementation details can be found in the jupyter notebooks, along with all the project deliverables, in this GitHub repository.
